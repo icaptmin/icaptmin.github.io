@@ -1,0 +1,1103 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      Hexo
+    
+  </title>
+  <meta name="author" content="icaptmin">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
+
+  <!-- css -->
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/Annie.css">
+  
+  <!-- jquery -->
+	<script src="/js/jquery.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="/js/leancloud.js"></script>
+</head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground" data-img-mode="random" data-normal-src="/" data-random-max="18" data-random-src="https://icaptmin.github.io/img/">
+	<div class="mask">
+		<!-- Logo and navigation -->
+		<div class="h-header">
+			<div id="logo">
+				<a href="/">
+						
+						<img src="/img/logo.png" alt="Logo">
+					
+				</a>
+			</div>
+			
+			<div id="navigation-show">
+				<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+			</div>				
+		</div>
+
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<p class="motto"></p>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" target="_blank" rel="noopener" id="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i>
+			</a>
+
+			
+				<!-- 
+	This is only a demo, please go to "https://time.is" to set your city time! 
+-->
+<style type="text/css">
+	.header-date {
+		font-size: 1.6rem;
+		color: #fff;
+		position: absolute;
+		bottom: 5px;
+		right: 1rem;
+		writing-mode: tb-rl;
+	}	
+	
+	.header-date a {
+		border-bottom: none;
+	}
+
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			font-size: 1rem;
+		}			
+	}
+</style>
+<div class="header-date">
+	<a href="https://time.is/Beijing" target="_blank" id="time_is_link" rel="nofollow noopener" ></a>
+	<span id="Beijing_z43d"></span>
+</div>
+<script src="//widget.time.is/zh.js"></script>
+<script>
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
+		}
+	});
+</script>
+			
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><h1>0.0%</h1></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			主页
+		
+	</p>
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" target="_blank" rel="noopener" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+	</div>
+	<div class="nav-footer">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="https://www.instagram.com/miao_mimi_/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="https://weibo.com/317665420" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="https://twitter.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			
+
+
+
+	<!--cart style-->
+	<div class="layout-cart">
+	<div id="layout-cart">
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2016/08/05/1/%E4%BA%91/" title=" 云 ">
+				
+				<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg"/>
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					八月 5日, 2016
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2016/08/05/1/%E4%BA%91/" title="云">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2016/08/05/1/%E4%BA%91/" itemprop="url">
+		云
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						下地铁的时候 偶然看到的天空
+
+
+
+
+					
+				</p>
+				<p class="post-meta">
+					
+
+
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2016/07/30/1/%E5%92%8C%E8%80%81%E5%A6%88%E6%84%89%E5%BF%AB%E5%9C%B0%E8%A7%85%E9%A3%9F/" title=" 和老妈愉快地觅食 ">
+				
+				<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg"/>
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					七月 30日, 2016
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2016/07/30/1/%E5%92%8C%E8%80%81%E5%A6%88%E6%84%89%E5%BF%AB%E5%9C%B0%E8%A7%85%E9%A3%9F/" title="和老妈愉快地觅食">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2016/07/30/1/%E5%92%8C%E8%80%81%E5%A6%88%E6%84%89%E5%BF%AB%E5%9C%B0%E8%A7%85%E9%A3%9F/" itemprop="url">
+		和老妈愉快地觅食
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						逛啊逛啊逛 我们就肚子饿了~选阿选啊选 我们就选了港丽-v-
+
+
+叉烧拼琵琶鸭 啊 叉烧！我的最爱-v- 鸭鸭是我妈选的
+馋嘴牛蛙 老点三杯鸡 这次换了个...
+					
+				</p>
+				<p class="post-meta">
+					
+
+
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2016/07/10/1/%E8%BF%99%E6%AC%A1%E6%98%AF%E5%8F%AA%E8%83%BD%E7%9C%8B%E7%9A%84%E9%B1%BC%E9%B1%BC%EF%BC%81/" title=" 这次是只能看的鱼鱼！ ">
+				
+				<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg"/>
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					七月 10日, 2016
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2016/07/10/1/%E8%BF%99%E6%AC%A1%E6%98%AF%E5%8F%AA%E8%83%BD%E7%9C%8B%E7%9A%84%E9%B1%BC%E9%B1%BC%EF%BC%81/" title="这次是只能看的鱼鱼！">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2016/07/10/1/%E8%BF%99%E6%AC%A1%E6%98%AF%E5%8F%AA%E8%83%BD%E7%9C%8B%E7%9A%84%E9%B1%BC%E9%B1%BC%EF%BC%81/" itemprop="url">
+		这次是只能看的鱼鱼！
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						去了海洋水族馆-v- 里面有好多好玩好看的鱼！不过只能往前走 不能来回逛0.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					
+				</p>
+				<p class="post-meta">
+					
+
+
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2016/06/27/1/%E9%93%81%E6%A0%91%E5%BC%80%E8%8A%B1%E5%95%A6o%E2%80%BF%E2%89%96%E2%9C%A7/" title=" 铁树开花啦o‿≖✧ ">
+				
+				<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg"/>
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					六月 27日, 2016
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2016/06/27/1/%E9%93%81%E6%A0%91%E5%BC%80%E8%8A%B1%E5%95%A6o%E2%80%BF%E2%89%96%E2%9C%A7/" title="铁树开花啦o‿≖✧">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2016/06/27/1/%E9%93%81%E6%A0%91%E5%BC%80%E8%8A%B1%E5%95%A6o%E2%80%BF%E2%89%96%E2%9C%A7/" itemprop="url">
+		铁树开花啦o‿≖✧
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						隔一段时间拍一张照片 变化好大啊一开始是短短胖胖的 到后面就变得细细长长啦-v-记录第一次看到铁树开花！的我！
+
+
+
+
+
+
+
+
+
+
+
+					
+				</p>
+				<p class="post-meta">
+					
+
+
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2016/06/16/1/%E5%97%AF%EF%BC%9F%E5%90%AC%E8%AF%B4%E4%BD%A0%E6%98%AF%E7%A7%91%E6%8A%80%E9%A6%86/" title=" 嗯？听说你是科技馆 ">
+				
+				<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg"/>
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					六月 16日, 2016
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2016/06/16/1/%E5%97%AF%EF%BC%9F%E5%90%AC%E8%AF%B4%E4%BD%A0%E6%98%AF%E7%A7%91%E6%8A%80%E9%A6%86/" title="嗯？听说你是科技馆">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2016/06/16/1/%E5%97%AF%EF%BC%9F%E5%90%AC%E8%AF%B4%E4%BD%A0%E6%98%AF%E7%A7%91%E6%8A%80%E9%A6%86/" itemprop="url">
+		嗯？听说你是科技馆
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						感觉像半个自然博物馆加了科技套件-v-去的时候碰到好多学校组织参观科技感满满！还是很好玩的哦！
+
+
+
+
+
+
+
+
+
+
+
+
+					
+				</p>
+				<p class="post-meta">
+					
+
+
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2016/05/31/1/%E5%86%9C%E6%B0%91%E4%BC%AF%E4%BC%AF%E4%B8%8D%E5%A5%BD%E5%BD%93-0-/" title=" 农民伯伯不好当-0- ">
+				
+				<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg"/>
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					五月 31日, 2016
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2016/05/31/1/%E5%86%9C%E6%B0%91%E4%BC%AF%E4%BC%AF%E4%B8%8D%E5%A5%BD%E5%BD%93-0-/" title="农民伯伯不好当-0-">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2016/05/31/1/%E5%86%9C%E6%B0%91%E4%BC%AF%E4%BC%AF%E4%B8%8D%E5%A5%BD%E5%BD%93-0-/" itemprop="url">
+		农民伯伯不好当-0-
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						今天天气特别闷！到处都是蚊子 被咬了好几个蚊子块555不过采了好多好多杏子-v-
+
+
+纯天然绿色水果！
+
+					
+				</p>
+				<p class="post-meta">
+					
+
+
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2016/05/19/1/Hello,-LINE-FRIENDS%EF%BC%81%EF%BC%81/" title=" Hello, LINE FRIENDS！！ ">
+				
+				<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg"/>
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					五月 19日, 2016
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2016/05/19/1/Hello,-LINE-FRIENDS%EF%BC%81%EF%BC%81/" title="Hello, LINE FRIENDS！！">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2016/05/19/1/Hello,-LINE-FRIENDS%EF%BC%81%EF%BC%81/" itemprop="url">
+		Hello, LINE FRIENDS！！
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						抢钱天团的店怎么能不去瞧瞧！本来以为是很大一家店的咯 结果就一点点..不过都超可爱啊啊啊-v-
+
+
+
+莎莉莎莉 黄黄的莎莉~
+
+					
+				</p>
+				<p class="post-meta">
+					
+
+
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2016/05/11/1/%E8%87%AA%E7%84%B6%E5%8D%9A%E7%89%A9%E9%A6%86%E6%88%91%E6%9D%A5%E5%95%A6%E3%83%BD(%E2%80%A2%CC%80%CF%89%E2%80%A2%CC%81-)%E3%82%9D/" title=" 自然博物馆我来啦ヽ(•̀ω•́ )ゝ ">
+				
+				<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg"/>
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					五月 11日, 2016
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2016/05/11/1/%E8%87%AA%E7%84%B6%E5%8D%9A%E7%89%A9%E9%A6%86%E6%88%91%E6%9D%A5%E5%95%A6%E3%83%BD(%E2%80%A2%CC%80%CF%89%E2%80%A2%CC%81-)%E3%82%9D/" title="自然博物馆我来啦ヽ(•̀ω•́ )ゝ">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2016/05/11/1/%E8%87%AA%E7%84%B6%E5%8D%9A%E7%89%A9%E9%A6%86%E6%88%91%E6%9D%A5%E5%95%A6%E3%83%BD(%E2%80%A2%CC%80%CF%89%E2%80%A2%CC%81-)%E3%82%9D/" itemprop="url">
+		自然博物馆我来啦ヽ(•̀ω•́ )ゝ
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						去的时候人不是很多 兜兜看看还是很开心的！有很多长得不是很认真的动物-v-当了一路的好奇宝宝:P
+
+
+
+
+
+
+这里有很多好看的矿石！
+
+
+
+
+
+
+
+
+
+
+
+					
+				</p>
+				<p class="post-meta">
+					
+
+
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2016/05/08/1/%E6%AF%8D%E4%BA%B2%E8%8A%82%E5%BF%AB%E4%B9%90%EF%BC%81/" title=" 母亲节快乐！ ">
+				
+				<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg"/>
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					五月 8日, 2016
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2016/05/08/1/%E6%AF%8D%E4%BA%B2%E8%8A%82%E5%BF%AB%E4%B9%90%EF%BC%81/" title="母亲节快乐！">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2016/05/08/1/%E6%AF%8D%E4%BA%B2%E8%8A%82%E5%BF%AB%E4%B9%90%EF%BC%81/" itemprop="url">
+		母亲节快乐！
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						这是所有妈妈的节日！
+
+
+
+
+
+
+					
+				</p>
+				<p class="post-meta">
+					
+
+
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2016/04/28/1/%E8%AF%B7%E5%A6%88%E5%A6%88%E5%90%83%E9%A5%AD%EF%BC%81/" title=" 请妈妈吃饭！ ">
+				
+				<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg"/>
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					四月 28日, 2016
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2016/04/28/1/%E8%AF%B7%E5%A6%88%E5%A6%88%E5%90%83%E9%A5%AD%EF%BC%81/" title="请妈妈吃饭！">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2016/04/28/1/%E8%AF%B7%E5%A6%88%E5%A6%88%E5%90%83%E9%A5%AD%EF%BC%81/" itemprop="url">
+		请妈妈吃饭！
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						好久没吃泰国菜啦 这次去了泰妃阁！泰妃阁 泰妃殿 傻傻分不清楚-v-
+
+
+咖喱牛腩 里面加了椰浆一起煮 味道不错哦！
+三杯鸡 用鸡翅的两头做的！嫩嫩的好吃...
+					
+				</p>
+				<p class="post-meta">
+					
+
+
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+				</p>
+			</div>
+		</div>
+		
+	</div>
+	
+	
+	<div id="pagination">
+		
+			<a href="/page/15/" data-title="加载更多" data-status="没有了">加载更多</a>
+		
+	</div>
+
+	
+
+</div>
+	
+
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div class="social">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="https://www.instagram.com/miao_mimi_/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="https://weibo.com/317665420" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="https://twitter.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2015 - 2019, content by icaptmin. All Rights Reserved.
+			
+			
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_site_pv">
+	    	本站总访问量<span id="busuanzi_value_site_pv"></span>次
+		</span>
+
+		<span id="busuanzi_container_site_uv">
+	  		本站访客数<span id="busuanzi_value_site_uv"></span>人次
+		</span>
+		
+	
+
+
+
+
+		</p>
+		<p>
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			<a href="javascript:zh_tran(' target="_blank" rel="noopener"s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran(' target="_blank" rel="noopener"t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- set '1' to show motto in all pages! -->
+
+	<script src="/plugin/motto/motto.js"></script>
+	
+	<script type="text/javascript">
+		$(".motto").html( getMingYanContent() );
+	</script>	
+
+
+
+
+	<!--
+	时间：2018-10-3
+	描述：
+		插件名称：hexo-generator-search-zip
+		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
+		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
+-->
+<div class="popup search-popup local-search-popup" >
+	<div class="local-search-container">
+		<span class="popup-btn-close">
+      		ESC
+   		</span>
+		<div class="local-search-header">
+			<div class="input-prompt">				
+			</div>
+			<input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+		</div>
+		<div class="local-search-body">
+			<div id="local-search-output"></div>
+		</div>
+		<div class="local-search-footer">
+			<div class="topN-post">				
+				
+								
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="/plugin/search/ziploader.js"></script>
+<script src="/plugin/search/search.js"></script>
+
+<script type="text/javascript">
+	var search_path = 'search.json',
+		zip_Path = '/search.zip',
+		version_Path = '/searchVersion.txt',
+		input_Trigger = 'auto',
+		top_N = '2';
+
+	themeLocalSearch({
+		search_path, 
+		zip_Path, 
+		version_Path, 
+		input_Trigger, 
+		top_N
+	});
+</script>
+
+
+<!-- love effect -->
+
+	<script src="/plugin/love/love.js"></script>
+
+
+<!-- back to top -->
+
+	
+	<div id="totop">
+  		<a href="javascript:;" target="_blank" rel="noopener"  name="TOTOP" class="fa fa-arrow-up" ></a>
+	</div>
+
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+
+	
+	
+	
+	
+ 
+
+<script src="/plugin/vibrant/vibrant.js"></script>
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imgLazyLoader/yall.min.js"></script>
+<script src="/plugin/imgResize/jquery.resizeimagetoparent.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/js/resizediv.js"></script>
+<script src="/js/main.js"></script>
+	</body>	
+</html>
