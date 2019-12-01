@@ -1,79 +1,108 @@
-extends includes/layout.pug
+<!DOCTYPE html><html lang="en | zh-CN |zh-TW" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>11月的日常份额 | Hexo</title><meta name="description" content="11月的日常份额"><meta name="keywords" content="日常,饮品,甜品,零食,面食,植物,小吃,风景,桂源铺,美仕唐纳滋,动物,沧浪亭,顾一碗馄饨·烧麦,隐烫,三米粥铺,面屋制面研究所"><meta name="author" content="icaptmin"><meta name="copyright" content="icaptmin"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="preconnect" href="//cdn.jsdelivr.net"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="11月的日常份额"><meta name="twitter:description" content="11月的日常份额"><meta name="twitter:image" content="https://icaptmin.github.io/img/1.jpg"><meta property="og:type" content="article"><meta property="og:title" content="11月的日常份额"><meta property="og:url" content="http://yoursite.com/2018/12/02/1/11%E6%9C%88%E7%9A%84%E6%97%A5%E5%B8%B8%E4%BB%BD%E9%A2%9D/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="11月的日常份额"><meta property="og:image" content="https://icaptmin.github.io/img/1.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = 'true'
+var t = Cookies.get("theme");
+if (autoChangeMode == '1'){
+const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
 
-block top_img
-  - var top_img =  page.top_img || page.cover || theme.post_meta.top_img || theme.default_top_img
-  - var bg_img = top_img !== true ? `background-image: url(${top_img})` : ''
-  div#top-container(style=bg_img)
-    #post-info
-      #post-title
-          .posttitle= page.title || _p('no_title')
-      #post-meta
-        if (theme.post_meta.date_type)
-          if (theme.post_meta.date_type === 'both')
-            time.post-meta__date
-              i.fa.fa-calendar(aria-hidden="true")
-              =' '+_p('post.created')+' '+date(page.date, config.date_format)
-              span.post-meta__separator |
-              i.fa.fa-history(aria-hidden="true")
-              =' '+_p('post.updated')+' '+date(page.updated, config.date_format)
-          else
-            - var date_type = theme.post_meta.date_type === 'updated' ? 'updated' : 'date'
-            time.post-meta__date #[i.fa.fa-calendar(aria-hidden="true")] #[=date(page[date_type], config.date_format)]
-                  
-        if (theme.post_meta.categories && page.categories.data.length > 0)
-          if (theme.post_meta.date_type)
-            span.post-meta__separator.mobile_hidden |
-          span.mobile_hidden
-            each item, index in page.categories.data
-              i.fa.fa-inbox.post-meta__icon(aria-hidden="true")
-              a(href=url_for(item.path)).post-meta__categories #[=item.name]
-              if (index < page.categories.data.length - 1)
-                i.fa.fa-angle-right(aria-hidden="true")
-        .post-meta-wordcount
-          if (theme.wordcount && theme.wordcount.enable)
-            i.fa.fa-file-word-o.post-meta__icon(aria-hidden="true")
-            span= _p('post.wordcount') + ': '
-            span.word-count= wordcount(page.content)
-            span.post-meta__separator |
-            i.fa.fa-clock-o.post-meta__icon(aria-hidden="true")
-            span= _p('post.min2read', min2read(page.content, {cn: 350, en: 160}))
-          if (theme.wordcount && theme.wordcount.enable && theme.busuanzi.page_pv)
-            span.post-meta__separator |
-          if theme.busuanzi.page_pv
-            i.fa.fa-eye.post-meta__icon(aria-hidden="true")        
-            span= _p('post.page_pv') + ': '
-            span#busuanzi_value_page_pv
+if (t === undefined){
+  if (isLightMode) activateLightMode()
+  else if (isDarkMode) activateDarkMode()
+  else if (isNotSpecified || hasNoSupport){
+    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+    now = new Date();
+    hour = now.getHours();
+    isNight = hour < 6 || hour >= 18
+    isNight ? activateDarkMode() : activateLightMode()
+}
+} else if (t == 'light') activateLightMode()
+else activateDarkMode()
 
 
-block content
-  article#post(class="")
-    #post-content.article-container!= page.content
-  if (theme.post_copyright && theme.post_copyright.enable && page.copyright != false)
-    .post-copyright
-      .post-copyright__author
-        span.post-copyright-meta= _p('post.copyright.author') + ": "
-        span.post-copyright-info
-          a(href=`mailto:${config.email}`) #[=config.author]
-      .post-copyright__type
-        span.post-copyright-meta= _p('post.copyright.link') + ": "
-        span.post-copyright-info
-          a(href=url_for(page.permalink)) #[=page.permalink]
-      .post-copyright__notice
-        span.post-copyright-meta= _p('post.copyright.copyright_notice') + ": "
-        span.post-copyright-info!= _p('post.copyright.copyright_content', theme.post_copyright.license_url, theme.post_copyright.license, config.url, config.title)
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="http://yoursite.com/2018/12/02/1/11%E6%9C%88%E7%9A%84%E6%97%A5%E5%B8%B8%E4%BB%BD%E9%A2%9D/"><link rel="prev" title="热fufu的火锅在家吃" href="/http:/yoursite.com/2018/12/09/1/%E7%83%ADfufu%E7%9A%84%E7%81%AB%E9%94%85%E5%9C%A8%E5%AE%B6%E5%90%83/"><link rel="next" title="小王生日快乐-v-" href="/http:/yoursite.com/2018/11/25/1/%E5%B0%8F%E7%8E%8B%E7%94%9F%E6%97%A5%E5%BF%AB%E4%B9%90-v-/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight_copy: 'false',
+  highlight_lang: 'true',
+  highlight_shrink: 'false',
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    title: 'Snackbar.bookmark.title',
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime_unit: 'days',
+  copyright: undefined,
+  copy_copyright_js: false,
+  ClickShowText: undefined,
+  medium_zoom: 'false',
+  Snackbar: undefined
   
-  .tag_share
-    if (theme.post_meta.tags)
-      .post-meta__tag-list
-        each item, index in page.tags.data
-          a(href=url_for(item.path)).post-meta__tags #[=item.name]    
-    include includes/share/index.pug
-        
-  if theme.reward.enable
-    include includes/reward.pug
-  include includes/pagination.pug
-  
-  if theme.related_post && theme.related_post.enable
-    != related_posts(page,site.posts)
-  if page.comments !== false
-    include includes/comments/index.pug
+}</script></head><body><div id="header"> <div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">Hexo</a></span><i class="fa fa-bars fa-fw toggle-menu pull_right close" aria-hidden="true"></i><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div></div></span><span class="pull_right" id="search_button"></span></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="lazyload avatar_img" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/Photo/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'"></div><div class="mobile_post_data"><div class="mobile_data_item is_center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">164</div></a></div></div><div class="mobile_data_item is_center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">338</div></a></div></div><div class="mobile_data_item is_center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">Categories</div><div class="length_num">3</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div></div></div><div id="mobile-sidebar-toc"><div class="toc_mobile_headline">Catalog</div></div></div><div id="body-wrap"><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://icaptmin.github.io/img/1.jpg)"><div id="post-info"><div id="post-title"><div class="posttitle">11月的日常份额</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> Created 2018-12-02<span class="post-meta__separator">|</span><i class="fa fa-history" aria-hidden="true"></i> Updated 2019-12-01</time><span class="post-meta__separator mobile_hidden">|</span><span class="mobile_hidden"><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB%E7%A2%8E%E7%89%87/">生活碎片</a></span><div class="post-meta-wordcount"><i class="fa fa-eye post-meta__icon" aria-hidden="true">       </i><span>Post View: </span><span id="busuanzi_value_page_pv"></span></div></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><p>2018年就剩最后1个月啦<br>准备准备<br>迎接最后的圣诞节和新的一年~</p>
+<a id="more"></a>
+
+
+<p>#吃吃喝喝<br>顾一碗：小馄饨与蛋黄鲜肉烧麦<br>小馄饨皮薄薄的不会散开也<br>烧麦里有半颗咸蛋黄！<br><img alt="IMG_181202_1.jpg" data-src="http://yun.ljmin.cn/usr/uploads/2018/12/2708200853.jpg" class="lazyload"></p>
+<p>隐烫<br>好久好久好久没有吃麻辣烫了<br>这次总算被我抓到机会了！<br>hin好吃呀开心<br>但是微辣似乎不适合我..<br><img alt="IMG_181202_2.jpg" data-src="http://yun.ljmin.cn/usr/uploads/2018/12/3305017844.jpg" class="lazyload"></p>
+<p>三米粥铺：黑米紫薯粥<br>喝这个粥的时候<br>就想到以前上学路上买的紫米粢饭团<br>里面还有很多大块的紫薯<br>半碗我就饱啦<br>盖子上还有贴心的小便签<br><img alt="IMG_181202_3.jpg" data-src="http://yun.ljmin.cn/usr/uploads/2018/12/2022318046.jpg" class="lazyload"></p>
+<p><img alt="IMG_181202_4.jpg" data-src="http://yun.ljmin.cn/usr/uploads/2018/12/3779795034.jpg" class="lazyload"></p>
+<p>沧浪亭：酱爆猪肝汤面+素鸡<br>这家的面吃不腻呀！<br>汤面更滑溜溜<br>素鸡真的很厚一大块<br><img alt="IMG_181202_5.jpg" data-src="http://yun.ljmin.cn/usr/uploads/2018/12/2775827903.jpg" class="lazyload"></p>
+<p>烤红薯<br>公司楼下的一家的小店<br>晚饭叫的外卖等了好久都没人接单<br>只能附近买啦<br>不过冷嗖嗖的天<br>吃一个热乎乎的红薯<br>感觉很温暖啦！<br><img alt="IMG_181202_6.jpg" data-src="http://yun.ljmin.cn/usr/uploads/2018/12/3303065400.jpg" class="lazyload"></p>
+<p>面屋制面研究所：番茄肥牛乌冬面<br>下班和朋友约了看电影<br>简单吃一碗面面<br>汤底还是普通的汤底<br>只是加了番茄而已0.0<br><img alt="IMG_181202_7.jpg" data-src="http://yun.ljmin.cn/usr/uploads/2018/12/951477154.jpg" class="lazyload"></p>
+<p>桂源铺：桂家香蜜脆脆鸡蛋仔<br>应该是受到了之前电视剧香蜜的启发<br>给鸡蛋仔取了这个名字<br>有蜜也有脆很贴切啦<br>不过好甜啊还黏糊糊的..<br>应该不会再吃第二次了！<br><img alt="IMG_181202_8.jpg" data-src="http://yun.ljmin.cn/usr/uploads/2018/12/3639738956.jpg" class="lazyload"></p>
+<p>炒米花与年糕片<br>某天吃好中饭出去散步<br>正好遇见了一个婆婆推着小车在卖<br>就买了2袋童年记忆~<br><img alt="IMG_181202_9.jpg" data-src="http://yun.ljmin.cn/usr/uploads/2018/12/2900314688.jpg" class="lazyload"></p>
+<p><img alt="IMG_181202_10.jpg" data-src="http://yun.ljmin.cn/usr/uploads/2018/12/609497280.jpg" class="lazyload"></p>
+<p>美仕唐纳滋：酸奶芬迪<br>到处都是圣诞节的气息啦！<br>甜甜圈上也是哦<br><img alt="IMG_181202_11.jpg" data-src="http://yun.ljmin.cn/usr/uploads/2018/12/2984379085.jpg" class="lazyload"></p>
+<p><img alt="IMG_181202_12.jpg" data-src="http://yun.ljmin.cn/usr/uploads/2018/12/2574723971.jpg" class="lazyload"></p>
+<p>素匠泰茶：招牌泰椰奶花+泰式蛋糕奶茶<br>我要的奶花好！好！喝！<br>里面是芒果+西米露+蒟蒻还是椰果的<br>反正我都喝完了！<br><img alt="IMG_181202_13.jpg" data-src="http://yun.ljmin.cn/usr/uploads/2018/12/1504759560.jpg" class="lazyload"></p>
+<p>百香果茶<br>带了妈妈买的百香果到公司<br>挖了一勺子觉得好酸-0-<br>就拿来泡了热水缓解一下酸味<br>好看好喝~<br><img alt="IMG_181202_14.jpg" data-src="http://yun.ljmin.cn/usr/uploads/2018/12/2255631311.jpg" class="lazyload"></p>
+<p>糖炒栗子<br>最近公司里天天有人叫糖炒栗子外卖<br>我也..跑出去买了一包哈哈哈<br>正好要出去<br>这家店又很近！<br><img alt="IMG_181202_15.jpg" data-src="http://yun.ljmin.cn/usr/uploads/2018/12/964443933.jpg" class="lazyload"></p>
+<p>在朋友家里度过的一个周末<br>电视里放着嘻嘻哈哈的综艺<br>大家围着桌子吃热热乎乎的火锅<br>这是生活的美好之一<br><img alt="IMG_181202_16.jpg" data-src="http://yun.ljmin.cn/usr/uploads/2018/12/3798162807.jpg" class="lazyload"></p>
+<p>#随手拍<br>公司外的小猫咪爬上了树<br>我叫了他一声<br>配合的回了头<br>咔嚓咔嚓<br>留作纪念~<br><img alt="IMG_181202_17.jpg" data-src="http://yun.ljmin.cn/usr/uploads/2018/12/2620199508.jpg" class="lazyload"></p>
+<p><img alt="IMG_181202_18.jpg" data-src="http://yun.ljmin.cn/usr/uploads/2018/12/678991642.jpg" class="lazyload"></p>
+<p>回家路上的瞬间<br><img alt="IMG_181202_19.jpg" data-src="http://yun.ljmin.cn/usr/uploads/2018/12/3442111362.jpg" class="lazyload"></p>
+<p>黄黄绿绿充满秋天气息的银杏树<br><img alt="IMG_181202_20.jpg" data-src="http://yun.ljmin.cn/usr/uploads/2018/12/4070915440.jpg" class="lazyload"></p>
+</div></article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%97%A5%E5%B8%B8/">日常    </a><a class="post-meta__tags" href="/tags/%E9%A5%AE%E5%93%81/">饮品    </a><a class="post-meta__tags" href="/tags/%E7%94%9C%E5%93%81/">甜品    </a><a class="post-meta__tags" href="/tags/%E9%9B%B6%E9%A3%9F/">零食    </a><a class="post-meta__tags" href="/tags/%E9%9D%A2%E9%A3%9F/">面食    </a><a class="post-meta__tags" href="/tags/%E6%A4%8D%E7%89%A9/">植物    </a><a class="post-meta__tags" href="/tags/%E5%B0%8F%E5%90%83/">小吃    </a><a class="post-meta__tags" href="/tags/%E9%A3%8E%E6%99%AF/">风景    </a><a class="post-meta__tags" href="/tags/%E6%A1%82%E6%BA%90%E9%93%BA/">桂源铺    </a><a class="post-meta__tags" href="/tags/%E7%BE%8E%E4%BB%95%E5%94%90%E7%BA%B3%E6%BB%8B/">美仕唐纳滋    </a><a class="post-meta__tags" href="/tags/%E5%8A%A8%E7%89%A9/">动物    </a><a class="post-meta__tags" href="/tags/%E6%B2%A7%E6%B5%AA%E4%BA%AD/">沧浪亭    </a><a class="post-meta__tags" href="/tags/%E9%A1%BE%E4%B8%80%E7%A2%97%E9%A6%84%E9%A5%A8%C2%B7%E7%83%A7%E9%BA%A6/">顾一碗馄饨·烧麦    </a><a class="post-meta__tags" href="/tags/%E9%9A%90%E7%83%AB/">隐烫    </a><a class="post-meta__tags" href="/tags/%E4%B8%89%E7%B1%B3%E7%B2%A5%E9%93%BA/">三米粥铺    </a><a class="post-meta__tags" href="/tags/%E9%9D%A2%E5%B1%8B%E5%88%B6%E9%9D%A2%E7%A0%94%E7%A9%B6%E6%89%80/">面屋制面研究所    </a></div><div class="post_share"><div class="social-share" data-image="https://icaptmin.github.io/img/1.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/2018/12/09/1/%E7%83%ADfufu%E7%9A%84%E7%81%AB%E9%94%85%E5%9C%A8%E5%AE%B6%E5%90%83/"><img class="prev_cover lazyload" data-src="https://icaptmin.github.io/img/1.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Previous Post</div><div class="prev_info"><span>热fufu的火锅在家吃</span></div></a></div><div class="next-post pull_right"><a href="/2018/11/25/1/%E5%B0%8F%E7%8E%8B%E7%94%9F%E6%97%A5%E5%BF%AB%E4%B9%90-v-/"><img class="next_cover lazyload" data-src="https://icaptmin.github.io/img/1.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Next Post</div><div class="next_info"><span>小王生日快乐-v-</span></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span> Recommend</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2018/12/31/1/12月日常-认真度过的每一天/" title="12月日常-认真度过的每一天"><img class="relatedPosts_cover lazyload"data-src="https://icaptmin.github.io/img/1.jpg"><div class="relatedPosts_title">12月日常-认真度过的每一天</div></a></div><div class="relatedPosts_item"><a href="/2018/11/11/1/迟到的10月日常-）/" title="迟到的10月日常:）"><img class="relatedPosts_cover lazyload"data-src="https://icaptmin.github.io/img/1.jpg"><div class="relatedPosts_title">迟到的10月日常:）</div></a></div><div class="relatedPosts_item"><a href="/2019/08/03/1/7月碎片/" title="7月碎片"><img class="relatedPosts_cover lazyload"data-src="https://icaptmin.github.io/img/1.jpg"><div class="relatedPosts_title">7月碎片</div></a></div><div class="relatedPosts_item"><a href="/2018/09/02/1/8月悄悄溜走~/" title="8月悄悄溜走~"><img class="relatedPosts_cover lazyload"data-src="https://icaptmin.github.io/img/1.jpg"><div class="relatedPosts_title">8月悄悄溜走~</div></a></div><div class="relatedPosts_item"><a href="/2018/10/04/1/9月日常/" title="9月日常"><img class="relatedPosts_cover lazyload"data-src="https://icaptmin.github.io/img/1.jpg"><div class="relatedPosts_title">9月日常</div></a></div><div class="relatedPosts_item"><a href="/2019/10/07/1/9月碎片/" title="9月碎片"><img class="relatedPosts_cover lazyload"data-src="https://icaptmin.github.io/img/1.jpg"><div class="relatedPosts_title">9月碎片</div></a></div></div><div class="clear_both"></div></div><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> Comment</span></div><div id="disqus_thread"></div><script>var unused = null;
+var disqus_config = function () {
+  this.page.url = 'http://yoursite.com/2018/12/02/1/11%E6%9C%88%E7%9A%84%E6%97%A5%E5%B8%B8%E4%BB%BD%E9%A2%9D/';
+  this.page.identifier = '2018/12/02/1/11月的日常份额/';
+  this.page.title = '11月的日常份额';
+}
+var d = document, s = d.createElement('script');
+s.src = "https://" + 'icaptmin' +".disqus.com/embed.js";
+s.setAttribute('data-timestamp', '' + +new Date());
+(d.head || d.body).appendChild(s);</script></div></div></div><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2015 - 2019 By icaptmin</div><div class="framework-info"><span>Driven </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="Read Mode"></i><i class="fa fa-plus" id="font_plus" title="Increase font size"></i><i class="fa fa-minus" id="font_minus" title="Decrease font size"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="Traditional Chinese and Simplified Chinese Conversion" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="Dark Mode"></i></div><div id="rightside-config-show"><div id="rightside_config" title="Setting"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="Scroll to comment"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="Table of Contents" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="Back to top" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="/js/third-party/activate-power-mode.js"></script><script>POWERMODE.colorful = true; // make power mode colorful
+POWERMODE.shake = true; // turn off shake
+document.body.addEventListener('input', POWERMODE);
+</script><script src="/js/tw_cn.js"></script><script>translateInitilization()
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="/js/third-party/click_heart.js"></script></body></html>
